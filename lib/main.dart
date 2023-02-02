@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'amplifyconfiguration.dart';
+import 'package:just_audio/just_audio.dart';
 
 void main() {
   runApp(const WhaleTunes());
@@ -32,7 +33,10 @@ class _WhaleTunesState extends State<WhaleTunes> {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      //home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: AudioPlayerPage(
+          audioUrl:
+              'https://whoicf2.whoi.edu/science/B/whalesounds/WhaleSounds/9220100Z.wav'),
     );
   }
 }
@@ -142,5 +146,76 @@ class _MyHomePageState extends State<MyHomePage> {
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+}
+
+class AudioPlayerPage extends StatefulWidget {
+  final String audioUrl;
+
+  AudioPlayerPage({required this.audioUrl});
+
+  @override
+  _AudioPlayerPageState createState() => _AudioPlayerPageState();
+}
+
+class _AudioPlayerPageState extends State<AudioPlayerPage> {
+  late AudioPlayer _audioPlayer;
+
+  @override
+  void initState() {
+    super.initState();
+    _audioPlayer = AudioPlayer();
+    _audioPlayer.setUrl(widget.audioUrl);
+    _audioPlayer.play();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text('Now Playing'),
+            StreamBuilder(
+              stream: _audioPlayer.durationStream,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return Text(snapshot.data.toString());
+                } else {
+                  return Text('Loading...');
+                }
+              },
+            ),
+            StreamBuilder(
+              stream: _audioPlayer.positionStream,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return Text(snapshot.data.toString());
+                } else {
+                  return Text('Loading...');
+                }
+              },
+            ),
+            StreamBuilder(
+              stream: _audioPlayer.playerStateStream,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return Text(snapshot.data.toString());
+                } else {
+                  return Text('Loading...');
+                }
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _audioPlayer.dispose();
+    super.dispose();
   }
 }
