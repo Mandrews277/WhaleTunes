@@ -1,16 +1,9 @@
 # whaletunes
 
-A new Flutter project.
+Whaletunes is the app to go with the remote hydrophone system being built as a capstone project at BCIT.
 
-## Getting Started
+Flutter was chosen for this project as it is able to compile to many platforms without needing to write more code.
 
-This project is a starting point for a Flutter application.
+The app will play audio that is stored on an AWS S3 storage bucket. The app will list out all available whale noises that are stored and allow any user to click on and hear the captured sounds. 
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Currently the app is able to play audio given a static URL. Next steps are to have the app properly fetch the information from AWS.
