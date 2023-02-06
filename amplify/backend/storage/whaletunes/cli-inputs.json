@@ -1,0 +1,18 @@
+{
+  "resourceName": "whaletunes",
+  "policyUUID": "ac7840ad",
+  "bucketName": "whaletunes",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}
