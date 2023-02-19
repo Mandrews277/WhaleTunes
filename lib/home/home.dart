@@ -1,6 +1,7 @@
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:whaletunes/firestore.dart';
+import 'package:whaletunes/play/play.dart';
 
 class homeScreen extends StatelessWidget {
   final _storageRef = FirebaseStorage.instance.ref();
@@ -26,6 +27,10 @@ class homeScreen extends StatelessWidget {
               itemCount: items?.length,
               itemBuilder: (context, index) {
                 return ListTile(
+                  onTap: () {
+                    playScreen(
+                        audioUrl: items[index].getDownloadURL().toString());
+                  },
                   title: Text(items![index].name),
                 );
               },
