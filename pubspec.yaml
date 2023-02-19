@@ -40,6 +40,10 @@ dependencies:
   amplify_auth_cognito: ^1.0.0-next.1 # AWS Authentication
   amplify_storage_s3: ^1.0.0-next.1 # AWS S3 Storage integration
   just_audio: ^0.9.31 # Just Audio for audio streaming
+  firebase_storage: ^11.0.13
+  firebase_core: ^2.6.1
+  google_fonts: ^4.0.3
+  cloud_firestore: ^4.4.2
 
 dev_dependencies:
   flutter_test:
