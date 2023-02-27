@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 
 class playScreen extends StatelessWidget {
-  final String audioUrl;
+  final audioUrl;
 
   playScreen({required this.audioUrl, super.key});
 
@@ -11,21 +11,21 @@ class playScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: _AudioPlayerWidget(audioUrl: audioUrl),
+        child: _AudioPlayerWidget(audioFile: audioUrl),
       ),
     );
   }
 }
 
 class _AudioPlayerWidget extends StatelessWidget {
-  final String audioUrl;
+  final audioFile;
 
-  _AudioPlayerWidget({required this.audioUrl});
+  _AudioPlayerWidget({required this.audioFile});
 
   Future<void> _play() async {
     try {
-      final audioReference = FirebaseStorage.instance.refFromURL(audioUrl);
-      final audioFile = await audioReference.getDownloadURL();
+      //final audioReference = FirebaseStorage.instance.refFromURL(audioUrl);
+      //final audioFile = await audioReference.getDownloadURL();
       final audioPlayer = AudioPlayer();
       await audioPlayer.setUrl(audioFile);
       await audioPlayer.play();

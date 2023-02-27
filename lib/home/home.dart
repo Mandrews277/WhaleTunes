@@ -1,51 +1,29 @@
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:whaletunes/firestore.dart';
-import 'package:whaletunes/play/play.dart';
+import 'package:whaletunes/audiolist/audiolist.dart';
+import 'package:whaletunes/login/login.dart';
+import 'package:whaletunes/audiolist/audiolist.dart';
+import 'package:whaletunes/services/auth.dart';
 
 class homeScreen extends StatelessWidget {
-  final _storageRef = FirebaseStorage.instance.ref();
-  homeScreen({super.key});
-
-  Future<ListResult> _listAllItems() async {
-    return _storageRef.listAll();
-  }
+  const homeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text("WhaleTunes"),
-      ),
-      body: FutureBuilder(
-        future: _listAllItems(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            final items = snapshot.data?.items;
-            return ListView.builder(
-              itemCount: items?.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  onTap: () {
-                    playScreen(
-                        audioUrl: items[index].getDownloadURL().toString());
-                  },
-                  title: Text(items![index].name),
-                );
-              },
-            );
-          } else if (snapshot.hasError) {
-            return Center(
-              child: Text('Error: ${snapshot.error.toString()}'),
-            );
-          } else {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-        },
-      ),
+    return StreamBuilder(
+      stream: AuthService().userStream,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Text('loading');
+        } else if (snapshot.hasError) {
+          return const Center(
+            child: Text('error'),
+          );
+        } else if (snapshot.hasData) {
+          return audioList();
+        } else {
+          return const loginScreen();
+        }
+      },
     );
   }
 }
