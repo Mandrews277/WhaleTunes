@@ -1,44 +1,27 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:whaletunes/routes.dart';
-import 'package:whaletunes/theme.dart';
+import 'package:flutter/services.dart';
+import 'package:WhaleTunes/routes/app_routes.dart';
+import 'package:firebase/firebase.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(App());
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
+  runApp(MyApp());
 }
 
-class App extends StatefulWidget {
-  const App({super.key});
-
-  @override
-  State<App> createState() => _AppState();
-}
-
-class _AppState extends State<App> {
-  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: _initialization,
-      builder: (context, snapshot) {
-        if (snapshot.hasError) {
-          return Text(
-            'Error Occured',
-          );
-        }
-
-        if (snapshot.connectionState == ConnectionState.done) {
-          return MaterialApp(
-            routes: appRoutes,
-            theme: appTheme,
-          );
-        }
-
-        return Text(
-          'Loading',
-        );
-      },
+    return MaterialApp(
+      theme: ThemeData(
+        visualDensity: VisualDensity.standard,
+      ),
+      title: 'WhaleTunes',
+      debugShowCheckedModeBanner: false,
+      initialRoute: AppRoutes.signUpScreen,
+      routes: AppRoutes.routes,
     );
   }
 }
