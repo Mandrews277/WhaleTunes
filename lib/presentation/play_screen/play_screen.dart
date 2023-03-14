@@ -171,6 +171,6 @@ class PlayScreen extends StatelessWidget {
   }
 
   onTapImgArrowleft(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.onBoardingScreen);
+    Navigator.pushNamed(context, AppRoutes.homeScreen);
   }
 }

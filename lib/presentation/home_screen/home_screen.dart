@@ -1,8 +1,12 @@
+import 'package:WhaleTunes/main.dart';
+import 'package:WhaleTunes/presentation/sign_up_screen/sign_up_screen.dart';
+
 import '../home_screen/widgets/favorites_item_widget.dart';
 import '../home_screen/widgets/listpexelspixabay289324_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:WhaleTunes/core/app_export.dart';
 import 'package:WhaleTunes/widgets/app_bar/custom_app_bar.dart';
+import 'package:WhaleTunes/services/auth.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -11,42 +15,54 @@ class HomeScreen extends StatelessWidget {
         child: Scaffold(
             backgroundColor: ColorConstant.gray900,
             appBar: CustomAppBar(
-                height: getVerticalSize(105),
-                title: Container(
-                  width: getHorizontalSize(72),
-                  margin: getMargin(left: 30),
-                  child: RichText(
-                    textDirection: TextDirection.ltr,
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                            text: "Good morning,\n",
-                            style: TextStyle(
-                                color: ColorConstant.whiteA700,
-                                fontSize: getFontSize(10),
-                                fontFamily: 'Plus Jakarta Sans',
-                                fontWeight: FontWeight.w400)),
-                        TextSpan(
-                            text: "John Doe",
-                            style: TextStyle(
-                                color: ColorConstant.whiteA700,
-                                fontSize: getFontSize(14),
-                                fontFamily: 'Plus Jakarta Sans',
-                                fontWeight: FontWeight.w600))
-                      ],
+              height: getVerticalSize(105),
+              title: Container(
+                width: getHorizontalSize(72),
+                margin: getMargin(left: 30),
+                child: RichText(
+                  textDirection: TextDirection.ltr,
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                          text: "Good morning,\n",
+                          style: TextStyle(
+                              color: ColorConstant.whiteA700,
+                              fontSize: getFontSize(10),
+                              fontFamily: 'Plus Jakarta Sans',
+                              fontWeight: FontWeight.w400)),
+                      TextSpan(
+                          text: "John Doe",
+                          style: TextStyle(
+                              color: ColorConstant.whiteA700,
+                              fontSize: getFontSize(14),
+                              fontFamily: 'Plus Jakarta Sans',
+                              fontWeight: FontWeight.w600))
+                    ],
+                  ),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              actions: [
+                InkWell(
+                  onTap: () async {
+                    await AuthService().signOut();
+                    Navigator.of(context, rootNavigator: true).pop(context);
+                    Navigator.pushNamed(context, AppRoutes.signUpScreen);
+                  },
+                  child: Container(
+                    child: FittedBox(
+                      fit: BoxFit.contain,
+                      child: CircleAvatar(
+                        backgroundImage:
+                            AssetImage(ImageConstant.imgPexelsmohamed),
+                        radius: 16,
+                      ),
                     ),
-                    textAlign: TextAlign.left,
+                    margin: EdgeInsets.all(30),
                   ),
                 ),
-                actions: [
-                  CustomImageView(
-                      imagePath: ImageConstant.imgPexelsmohamed,
-                      height: getSize(32),
-                      width: getSize(32),
-                      radius: BorderRadius.circular(getHorizontalSize(16)),
-                      margin:
-                          getMargin(left: 30, top: 12, right: 30, bottom: 11))
-                ]),
+              ],
+            ),
             body: Container(
                 width: double.maxFinite,
                 padding: getPadding(top: 5, bottom: 5),

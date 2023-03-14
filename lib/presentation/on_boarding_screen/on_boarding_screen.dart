@@ -58,6 +58,6 @@ class OnBoardingScreen extends StatelessWidget {
   }
 
   onTapGetstarted(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.signUpScreen);
+    Navigator.pushNamed(context, AppRoutes.homeScreen);
   }
 }

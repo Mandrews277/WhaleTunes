@@ -15,6 +15,8 @@ class SignUpScreen extends StatelessWidget {
           padding: getPadding(
             left: 30,
             right: 30,
+            top: 30,
+            bottom: 30,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -59,12 +61,16 @@ class SignUpScreen extends StatelessWidget {
                 margin: getMargin(
                   top: 21,
                 ),
+                onTap: () async {
+                  await AuthService().signOut();
+                  Navigator.pushNamed(context, AppRoutes.homeScreen);
+                },
               ),
               Padding(
                 padding: getPadding(
                   top: 24,
                 ),
-                /*child: RichText(
+                child: RichText(
                   text: TextSpan(
                     children: [
                       TextSpan(
@@ -98,7 +104,7 @@ class SignUpScreen extends StatelessWidget {
                     ],
                   ),
                   textAlign: TextAlign.left,
-                ),*/
+                ),
               ),
             ],
           ),
