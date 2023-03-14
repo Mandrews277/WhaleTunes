@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>480321848468-vmp603v2lpbbnm0locjrtb11p7ge38uu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.480321848468-vmp603v2lpbbnm0locjrtb11p7ge38uu</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>480321848468-ai883tgeekm28o8srksi2k9aooc3j9q7.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA-wno387RulinzAh9r2gdmJZ9qMgGS_Eg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>480321848468</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mikesapplication.app</string>
+	<key>PROJECT_ID</key>
+	<string>whaletunes-3bf8e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>whaletunes-3bf8e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:480321848468:ios:273eea5a0da99b2d37a081</string>
+</dict>
+</plist>

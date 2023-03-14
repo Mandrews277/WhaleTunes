@@ -13,26 +13,31 @@ class HomeScreen extends StatelessWidget {
             appBar: CustomAppBar(
                 height: getVerticalSize(105),
                 title: Container(
-                    width: getHorizontalSize(72),
-                    margin: getMargin(left: 30),
-                    child: RichText(
-                        text: TextSpan(children: [
-                          TextSpan(
-                              text: "Good morning,\n",
-                              style: TextStyle(
-                                  color: ColorConstant.whiteA700,
-                                  fontSize: getFontSize(10),
-                                  fontFamily: 'Plus Jakarta Sans',
-                                  fontWeight: FontWeight.w400)),
-                          TextSpan(
-                              text: "John Doe",
-                              style: TextStyle(
-                                  color: ColorConstant.whiteA700,
-                                  fontSize: getFontSize(14),
-                                  fontFamily: 'Plus Jakarta Sans',
-                                  fontWeight: FontWeight.w600))
-                        ]),
-                        textAlign: TextAlign.left)),
+                  width: getHorizontalSize(72),
+                  margin: getMargin(left: 30),
+                  child: RichText(
+                    textDirection: TextDirection.ltr,
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                            text: "Good morning,\n",
+                            style: TextStyle(
+                                color: ColorConstant.whiteA700,
+                                fontSize: getFontSize(10),
+                                fontFamily: 'Plus Jakarta Sans',
+                                fontWeight: FontWeight.w400)),
+                        TextSpan(
+                            text: "John Doe",
+                            style: TextStyle(
+                                color: ColorConstant.whiteA700,
+                                fontSize: getFontSize(14),
+                                fontFamily: 'Plus Jakarta Sans',
+                                fontWeight: FontWeight.w600))
+                      ],
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                ),
                 actions: [
                   CustomImageView(
                       imagePath: ImageConstant.imgPexelsmohamed,

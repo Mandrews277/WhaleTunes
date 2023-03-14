@@ -64,7 +64,7 @@ class SignUpScreen extends StatelessWidget {
                 padding: getPadding(
                   top: 24,
                 ),
-                child: RichText(
+                /*child: RichText(
                   text: TextSpan(
                     children: [
                       TextSpan(
@@ -98,7 +98,7 @@ class SignUpScreen extends StatelessWidget {
                     ],
                   ),
                   textAlign: TextAlign.left,
-                ),
+                ),*/
               ),
             ],
           ),

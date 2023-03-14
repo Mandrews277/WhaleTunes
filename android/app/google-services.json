@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "480321848468",
+    "project_id": "whaletunes-3bf8e",
+    "storage_bucket": "whaletunes-3bf8e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:480321848468:android:b49dbf84be23950b37a081",
+        "android_client_info": {
+          "package_name": "io.ProjectKraken.whaletunes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "480321848468-d045mehp5kinvr2865ckd6ril1mb1sop.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.ProjectKraken.whaletunes",
+            "certificate_hash": "dbe5daf8beffc5c986f2c2020798789c5a43c3b2"
+          }
+        },
+        {
+          "client_id": "480321848468-ekac05kjf9915h9o9b335hkj14jjfd50.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9KPXqmK7RJx8tUipAQ8UjZ_H7DmIw008"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "480321848468-ekac05kjf9915h9o9b335hkj14jjfd50.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "480321848468-j9k01feins1mf5jhngacjdb0bv6q1mui.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "io.ProjectKraken.WhaleTunes"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
