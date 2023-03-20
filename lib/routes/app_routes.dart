@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:WhaleTunes/default.dart';
 import 'package:flutter/material.dart';
 import 'package:WhaleTunes/presentation/on_boarding_screen/on_boarding_screen.dart';

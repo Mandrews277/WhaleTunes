@@ -1,0 +1,73 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-whaletunes-whaletunes-211304-authRole",
+      "UnauthRoleArn": "arn:aws:iam::566967525612:role/amplify-whaletunes-whaletunes-211304-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::566967525612:role/amplify-whaletunes-whaletunes-211304-authRole",
+      "Region": "us-west-1",
+      "DeploymentBucketName": "amplify-whaletunes-whaletunes-211304-deployment",
+      "UnauthRoleName": "amplify-whaletunes-whaletunes-211304-unauthRole",
+      "StackName": "amplify-whaletunes-whaletunes-211304",
+      "StackId": "arn:aws:cloudformation:us-west-1:566967525612:stack/amplify-whaletunes-whaletunes-211304/f027ed10-a5dc-11ed-a730-068f4482c7c9",
+      "AmplifyAppId": "dk6iocpij32ln"
+    }
+  },
+  "auth": {
+    "whaletunes0a95acc9": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-whaletunes-whaletunes-211304-deployment/amplify-cfn-templates/auth/whaletunes0a95acc9-cloudformation-template.json",
+        "logicalId": "authwhaletunes0a95acc9"
+      },
+      "lastPushTimeStamp": "2023-02-06T05:47:22.777Z",
+      "output": {
+        "UserPoolId": "us-west-1_yD1UsZOQw",
+        "AppClientIDWeb": "3h5ecqjjd5lc73vdkiao3e4161",
+        "AppClientID": "11aspnh35ci2qdsaor2u8tv4i9",
+        "IdentityPoolId": "us-west-1:ef06ec57-9d76-41be-8ed8-5fbf066a11c5",
+        "UserPoolArn": "arn:aws:cognito-idp:us-west-1:566967525612:userpool/us-west-1_yD1UsZOQw",
+        "IdentityPoolName": "whaletunes0a95acc9_identitypool_0a95acc9__whaletunes",
+        "UserPoolName": "whaletunes0a95acc9_userpool_0a95acc9"
+      },
+      "lastPushDirHash": "hvbCbL5V8bzZLvN+BSX5eIrC/+E="
+    }
+  },
+  "storage": {
+    "whaletunes": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "lastPushTimeStamp": "2023-02-06T05:47:22.777Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-whaletunes-whaletunes-211304-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
+        "logicalId": "storagewhaletunes"
+      },
+      "output": {
+        "BucketName": "whaletunes211304-whaletunes",
+        "Region": "us-west-1"
+      },
+      "lastPushDirHash": "hUACB8+R6r0TIfpRw7dbxBfTyZY="
+    }
+  }
+}

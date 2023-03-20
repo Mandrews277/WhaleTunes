@@ -49,7 +49,7 @@ class SignUpScreen extends StatelessWidget {
                 ),
                 text: "Sign up with Email",
                 onTap: () async {
-                  await AuthService().signOut();
+                  await AuthService().anonLogin();
                   Navigator.pushNamed(context, AppRoutes.onBoardingScreen);
                 },
               ),
