@@ -3,20 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 
 class PageManager {
-  final _storageRef = FirebaseStorage.instance.ref();
-  late String path;
-
-  Future<void> _play(String path) async {
-    try {
-      //final audioReference = FirebaseStorage.instance.refFromURL(audioUrl);
-      //final audioFile = await audioReference.getDownloadURL();
-      print(_storageRef.child(path).getDownloadURL());
-    } catch (e) {
-      print(e.toString());
-      print('ERROR TEST ERROR TEST ERROR TEST ERROR TEST ERROR TEST');
-    }
-  }
-
   final progressNotifier = ValueNotifier<ProgressBarState>(
     ProgressBarState(
       current: Duration.zero,
@@ -26,19 +12,18 @@ class PageManager {
   );
   final buttonNotifier = ValueNotifier<ButtonState>(ButtonState.paused);
 
-  static const url =
-      'https://firebasestorage.googleapis.com/v0/b/whaletunes-3bf8e.appspot.com/o/55113007.wav?alt=media&token=861d9516-9cda-4386-97d7-80e878da3e72';
-
   late AudioPlayer _audioPlayer;
-  PageManager(String passedPath) {
-    path = passedPath;
-    _init();
+  PageManager(String URL) {
+    _init(URL);
   }
 
-  void _init() async {
+  //void setURL() async {
+  //  await _audioPlayer.setUrl();
+  //}
+
+  void _init(String URL) async {
     _audioPlayer = AudioPlayer();
-    await _audioPlayer.setUrl(url);
-    _play(path);
+    await _audioPlayer.setUrl(URL);
 
     _audioPlayer.playerStateStream.listen((playerState) {
       final isPlaying = playerState.playing;

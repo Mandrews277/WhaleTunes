@@ -133,14 +133,29 @@ class HomeScreen extends StatelessWidget {
                               //         style: AppStyle
                               //             .txtPlusJakartaSansRomanRegular12))
                             ])),
-                    Padding(
-                      padding: getPadding(left: 30, top: 14, right: 30),
+                    Expanded(
                       child: ListView.builder(
-                        physics: BouncingScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: items?.length,
                         itemBuilder: (context, index) {
-                          return WhaleTuneTile(items![index]);
+                          return FutureBuilder(
+                            future: getURL(items![index]),
+                            builder: ((context, snapshot) {
+                              if (snapshot.hasData) {
+                                String URL = snapshot.data.toString();
+                                return WhaleTuneTile(items[index], URL);
+                              } else if (snapshot.hasError) {
+                                return Center(
+                                  child: Text(
+                                      'Error: ${snapshot.error.toString()}'),
+                                );
+                              } else {
+                                return Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              }
+                            }),
+                          );
                         },
                       ),
                     ),
@@ -164,5 +179,10 @@ class HomeScreen extends StatelessWidget {
 
   onTapFavorite(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.playScreen);
+  }
+
+  Future<String> getURL(Reference item) async {
+    String URL = await _storageRef.child(item.fullPath).getDownloadURL();
+    return URL;
   }
 }

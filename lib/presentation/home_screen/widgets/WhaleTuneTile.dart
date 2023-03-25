@@ -6,10 +6,12 @@ import 'package:WhaleTunes/core/app_export.dart';
 // ignore: must_be_immutable
 class WhaleTuneTile extends StatelessWidget {
   late Reference item;
-  WhaleTuneTile(this.item);
+  late String URL;
+  WhaleTuneTile(this.item, this.URL);
 
   @override
   Widget build(BuildContext context) {
+    print(URL);
     return Card(
       /* padding: getPadding(
         all: 14,
@@ -83,8 +85,10 @@ class WhaleTuneTile extends StatelessWidget {
             ],
           ),
           onTap: () {
-            Navigator.pushNamed(context, AppRoutes.playScreen,
-                arguments: PlayScreen(item.fullPath));
+            Navigator.push(
+                context,
+                new MaterialPageRoute(
+                    builder: (context) => new PlayScreen(URL: URL)));
           }),
     );
   }

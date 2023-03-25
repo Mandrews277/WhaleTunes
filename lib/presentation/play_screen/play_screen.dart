@@ -1,6 +1,3 @@
-import 'dart:developer';
-import 'dart:html';
-
 import 'package:WhaleTunes/services/pageManager.dart';
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -10,14 +7,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:just_audio/just_audio.dart';
 
 class PlayScreen extends StatelessWidget {
-  late final URL;
-  late final PageManager _pageManager = PageManager(URL);
+  String URL = '';
 
-  PlayScreen(this.URL);
+  PlayScreen({required this.URL, super.key});
 
   @override
   Widget build(BuildContext context) {
-    final arg = ModalRoute.of(context)!.settings.arguments as Map;
+    print(URL);
+    final PageManager _pageManager = PageManager(URL);
     return SafeArea(
       child: Scaffold(
         backgroundColor: ColorConstant.black900,
@@ -62,6 +59,7 @@ class PlayScreen extends StatelessWidget {
                                 height: getVerticalSize(40),
                                 width: getHorizontalSize(24),
                                 onTap: () {
+                                  _pageManager.pause();
                                   onTapImgArrowleft(context);
                                 },
                                 margin: EdgeInsets.fromLTRB(0, 0, 20, 0),
@@ -264,6 +262,6 @@ class PlayScreen extends StatelessWidget {
   }
 
   onTapImgArrowleft(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.homeScreen);
+    Navigator.pop(context);
   }
 }
